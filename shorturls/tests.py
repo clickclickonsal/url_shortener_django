@@ -47,3 +47,13 @@ class ShortenerText(TestCase):
 		short_url = Link.shorten(l)
 		self.assertEqual(url, l.url)
 		self.assertIn(short_url, response.content)
+
+	def test_redirect_to_long_link(self):
+		"""
+		Tests that submitting the forms return a Link object.
+		"""
+		url = "http://example.com"
+		l = Link.objects.create(url=url)
+		short_url = Link.shorten(l)
+		response = self.client.get(reverse("redirect_short_url", kwargs={"short_url": short_url}))
+		self.assertRedirects(response, url)
