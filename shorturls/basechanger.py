@@ -1,4 +1,5 @@
-CHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+import string
+CHARS = string.digits+string.ascii_lowercase+string.ascii_uppercase
 BASE = len(CHARS)
 
 def decimal2base_n(n):
