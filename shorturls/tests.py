@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import Link
+from django.core.urlresolvers import reverse
 
 # Create your tests here.
 class ShortenerText(TestCase):
@@ -26,10 +27,10 @@ class ShortenerText(TestCase):
 		# Checks that expanded url is equal to original url.
 		self.assertEqual(url, exp_url)
 
-		def test_homepage(self):
-			"""
-			Tests that a home page exists and it contains a form.
-			"""
-			response = self.client.get(reverse("home"))
-			self.assertEqual(response.status_code, 200)
-			self.assertIn("form", response.context)
+	def test_homepage(self):
+		"""
+		Tests that a home page exists and it contains a form.
+		"""
+		response = self.client.get(reverse("home"))
+		self.assertEqual(response.status_code, 200)
+		self.assertIn("form", response.context)
