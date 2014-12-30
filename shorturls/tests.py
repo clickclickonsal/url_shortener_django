@@ -25,3 +25,11 @@ class ShortenerText(TestCase):
 		exp_url = Link.expand(short_url)
 		# Checks that expanded url is equal to original url.
 		self.assertEqual(url, exp_url)
+
+		def test_homepage(self):
+			"""
+			Tests that a home page exists and it contains a form.
+			"""
+			response = self.client.get(reverse("home"))
+			self.assertEqual(response.status_code, 200)
+			self.assertIn("form", response.context)
