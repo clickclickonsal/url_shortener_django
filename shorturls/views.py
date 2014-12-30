@@ -1,6 +1,9 @@
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
+from django.views.generic.base import RedirectView
+
 from .models import Link
+from django.shortcuts import redirect
 
 # Create your views here.
 class LinkCreate(CreateView):
@@ -15,3 +18,11 @@ class LinkCreate(CreateView):
 
 class LinkShow(DetailView):
 	model = Link
+
+class RedirectToLongURL(RedirectView):
+
+	permanent = False
+
+	def get_redirect_url(self, *args, **kwargs):
+		short_url = kwargs["short_url"]
+		return Link.expand(short_url)
