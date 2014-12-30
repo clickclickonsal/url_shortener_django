@@ -1,6 +1,7 @@
 from django.test import TestCase
 from .models import Link
 from django.core.urlresolvers import reverse
+import random, string
 
 # Create your tests here.
 class ShortenerText(TestCase):
@@ -57,3 +58,17 @@ class ShortenerText(TestCase):
 		short_url = Link.shorten(l)
 		response = self.client.get(reverse("redirect_short_url", kwargs={"short_url": short_url}))
 		self.assertRedirects(response, url)
+
+	def test_recover_link_n_times(self):
+		"""
+		Test multiple times that after shortening and expanding
+		the original url is recovered.
+		"""
+		TIMES = 100
+		for i in xrange(TIMES):
+			uri = "".join(random.sample(string.ascii_letters, 5))
+			url = "http://example.com/{}/{}/".format(i, uri)
+			l = Link.objects.create(url=url)
+			short_url = Link.shorten(l)
+			long_url = Link.expand(short_url)
+			self.assertEqual(url, long_url)
