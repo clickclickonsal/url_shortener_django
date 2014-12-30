@@ -9,7 +9,7 @@ class ShortenerText(TestCase):
 		"""
 		url = "http://www.example.com/"
 		l = Link(url=url)
-		short_url = Link.shorten(1)
+		short_url = Link.shorten(l)
 		# checks if short_url length is less than url length.
 		self.assertLess(len(short_url), len(url))
 
