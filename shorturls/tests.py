@@ -39,9 +39,11 @@ class ShortenerText(TestCase):
 		"""
 		Test that submitting the forms returns a Link object.
 		"""
-		url = "http://example.com"
-		l = Link.objects.create(url=url)
-		short_url = Link.shorten(l)
+		url = "http://example.com/"
 		response = self.client.post(reverse("home"),{"url":url}, follow=True)
 		self.assertEqual(response.status_code, 200)
+		self.assertIn("link", response.context)
+		l = response.context["link"]
+		short_url = Link.shorten(l)
+		self.assertEqual(url, l.url)
 		self.assertIn(short_url, response.content)
