@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .model import Link
+from .models import Link
 
 # Create your tests here.
 class ShortenerText(TestCase):
