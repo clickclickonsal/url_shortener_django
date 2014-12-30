@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from shorturls.views import LinkCreate
+from shorturls.views import LinkShow
 
 urlpatterns = patterns('',
 	url(r'^$', LinkCreate.as_view(), name='home'),
