@@ -15,3 +15,6 @@ class Link(models.Model):
 		link_id = int(slug)
 		l = Link.objects.get(pk=link_id)
 		return l.url
+
+	def get_absolute_url(self):
+		return reverse("link_show", kwargs={"pk": self.pk})
