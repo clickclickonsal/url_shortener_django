@@ -18,7 +18,7 @@ class LinkCreate(CreateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(LinkCreate, self).get_context_data(**kwargs)
-		context['link_list'] = Link.objects.all()
+		context['link_list'] = Link.objects.all().order_by('-id')
 		return context
 
 class LinkShow(DetailView):
