@@ -13,7 +13,7 @@ class LinkCreate(CreateView):
 	def form_valid(self, form):
 		prev = Link.objects.filter(url=form.instance.url)
 		if prev:
-			return redirect("home")
+			return redirect("link_show", pk=prev[0].pk)
 		return super(LinkCreate, self).form_valid(form)
 
 	def get_context_data(self, **kwargs):

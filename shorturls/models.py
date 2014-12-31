@@ -9,7 +9,7 @@ class Link(models.Model):
 	url = models.URLField()
 
 	def get_absolute_url(self):
-		return reverse("home")
+		return reverse("link_show", kwargs={"pk": self.pk})
 
 	# Encodes Url to a short url
 	@staticmethod
