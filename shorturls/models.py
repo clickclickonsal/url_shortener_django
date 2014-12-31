@@ -22,11 +22,11 @@ class Link(models.Model):
 	@staticmethod
 	def expand(slug):
 		# Decrypting slug and getting '(12,)'
-		dirty_str = s str(hashids.decrypt(slug))
+		dirty_str = str(hashids.decrypt(slug))
 		# stripping out '(,)'
 		clean_id = dirty_str.strip("(,)")
 		# now converting '12' into 12
-		link_id = int(clean_id))
+		link_id = int(clean_id)
 		l = Link.objects.get(pk=link_id)
 		return l.url
 
