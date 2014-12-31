@@ -16,6 +16,11 @@ class LinkCreate(CreateView):
 			return redirect("link_show", pk=prev[0].pk)
 		return super(LinkCreate, self).form_valid(form)
 
+	def get_context_data(self, **kwargs):
+		context = super(LinkCreate, self).get_context_data(**kwargs)
+		context['link_list'] = Link.objects.all()
+		return context
+
 class LinkShow(DetailView):
 	model = Link
 
