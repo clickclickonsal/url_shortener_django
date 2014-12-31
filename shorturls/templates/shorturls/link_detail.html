@@ -2,4 +2,7 @@
 {% block content %}
 	<p> Short Link: <a href="{{ object.short_url }}">{{ site_url }}{{ object.short_url }}</a></p>
 	<p> Original Link: {{ object.url }}</p>
+	<div class="back-button">
+		<button><a href="{% url 'home' %}">Back</a></button>
+	</div>
 {% endblock %}
