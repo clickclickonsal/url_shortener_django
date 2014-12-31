@@ -3,3 +3,10 @@
 	{{ form.as_p }}
 	<input type="submit" value="Shorten" />
 </form>
+
+{% for link in link_list %}
+	<ul>
+		<li>Short Link: <a href="{{ link.short_url }}">{{ link.short_url }}</a></li>
+		<li>Original Link: {{ link.url }}</li>
+	</ul>
+{% endfor %}
