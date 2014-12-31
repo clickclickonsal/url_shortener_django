@@ -23,5 +23,5 @@ class Link(models.Model):
 		return l.url
 
 	def short_url(self):
-    return reverse("redirect_short_url",
+		return reverse("redirect_short_url",
                    kwargs={"short_url": Link.shorten(self)})
