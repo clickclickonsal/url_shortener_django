@@ -2,7 +2,7 @@
 {% block content %}
 	<form method="post">
 		{% csrf_token %}
-		{{ form.as_p }}
+		{{ form.as_ul }}
 		<input type="submit" value="Shorten" />
 	</form>
 

@@ -1,8 +1,53 @@
-.content, h1 {
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.content {
 	width: 50%;
 	margin: auto;
 }
 
 h1 {
 	text-align: center;
+	font-size: 4em;
+	background: #00B2EE;
+	padding: 0;
+	margin: 0;
+	height: 1.5em;
+}
+
+form { 
+	text-align: center;
+	font-size: 2em;
+	list-style-type: none;
+}
+
+#id_url {
+	width: 25em;
+	height: 1.8em;
+}
+
+input[type="submit"] {
+	font-size: 2em;
+	width: 2em;
+}
+
+ul {
+	list-style-type: none;
+	background: #999999;
+	border-radius: 1em;
+}
+
+ul li {
+	font-size: 1.2em;
+	color: white;
+	padding: 1em;
+}
+
+a {
+	text-decoration: none;
+	color: blue;
+	font-weight: bold;
+	font-family: sans-serif;
 }
