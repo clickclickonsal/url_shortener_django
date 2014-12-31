@@ -1,7 +1,7 @@
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
 from django.views.generic.base import RedirectView
-
+from django.conf import settings
 from .models import Link
 from django.shortcuts import redirect
 
