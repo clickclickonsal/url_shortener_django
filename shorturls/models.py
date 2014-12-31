@@ -15,12 +15,18 @@ class Link(models.Model):
 	@staticmethod
 	def shorten(link):
 		l, _ = Link.objects.get_or_create(url=link.url)
-		return str(decimal2base_n(l.pk))
+		# using library to encrypt id
+		return str(hashids.encrypt(l.pk))
 
 	# Decodes short url to original url
 	@staticmethod
 	def expand(slug):
-		link_id = int(base_n2decimal(slug))
+		# Decrypting slug and getting '(12,)'
+		dirty_str = s str(hashids.decrypt(slug))
+		# stripping out '(,)'
+		clean_id = dirty_str.strip("(,)")
+		# now converting '12' into 12
+		link_id = int(clean_id))
 		l = Link.objects.get(pk=link_id)
 		return l.url
 
