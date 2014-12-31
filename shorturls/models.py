@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from .basechanger import decimal2base_n, base_n2decimal
 from hashids import Hashids
 hashids = Hashids()
 # Create your models here.
