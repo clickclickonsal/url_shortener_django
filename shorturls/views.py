@@ -27,6 +27,11 @@ class LinkCreate(CreateView):
 class LinkShow(DetailView):
 	model = Link
 
+	def get_context_data(self, **kwargs):
+		context = super(LinkCreate, self).get_context_data(**kwargs)
+		context['site_url'] = settings.SITE_URL
+		return context
+
 class RedirectToLongURL(RedirectView):
 
 	permanent = False
