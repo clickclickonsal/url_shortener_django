@@ -19,7 +19,7 @@ class LinkCreate(CreateView):
 	def get_context_data(self, **kwargs):
 		context = super(LinkCreate, self).get_context_data(**kwargs)
 		# Passing link_list to display original and short_url in link_form.html
-		context['link_list'] = Link.objects.all().order_by('-id')
+		context['link_list'] = Link.objects.all().order_by('-id')[:10]
 		# Passing site_url to display domain base
 		context['site_url'] = settings.SITE_URL
 		return context
