@@ -29,11 +29,6 @@ form {
 	height: 1.8em;
 }
 
-input[type="submit"] {
-	font-size: 2em;
-	width: 2em;
-}
-
 ul {
 	list-style-type: none;
 	background: #999999;
