@@ -3,10 +3,11 @@
 A Url shortener written in Python/Django.
 The majority of this project was built by following Arun Ravindrans's Blog post on 
 [Understanding TDD with Django](http://arunrocks.com/understanding-tdd-with-django/).
-Check out my Blog Post, [A Rubyist’s Experience Building a Url Shortener in Python/Django](https://medium.com/@clickclickonsal/a-rubyists-experience-building-a-url-shortener-in-python-django-25a3903f2875) related to this project. 
+Check out my Blog Post, [A Rubyist’s Experience Building a Url Shortener in Python/Django](https://medium.com/@clickclickonsal/a-rubyists-experience-building-a-url-shortener-in-python-django-25a3903f2875), related to this project. 
 
 ## Local Set Up
 * ```$ git clone git@github.com:clickclickonsal/url_shortener_django.git```
+* ```$ cd url_shortener```
 * ```$ python manage.py syncdb```
 * ```$ python manage.py migrate```
 * ```$ python manage.py runserver```
